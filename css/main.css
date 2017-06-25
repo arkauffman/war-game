@@ -1,0 +1,72 @@
+* {
+    background-color: #d3d3d3;
+}
+
+h1 {
+    font-family: 'Frijole', cursive, sans-serif;
+    text-align: center;
+    color: #556b2f;
+}
+
+p {
+    font-family: 'Frijole', cursive, sans-serif;
+    text-align: center;
+    color: #556b2f;
+}
+
+nav {
+    padding: 20px 0px;
+    text-align: center;
+}
+
+a {
+    font-family: 'Frijole', cursive, sans-serif;
+    color: #556b2f; 
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-weight: 500px;
+    font-size: 15px;
+    margin: 0 20px;
+    border-bottom: 2px solid transparent;
+}
+
+a:hover {
+    border-color: #556b2f; 
+}
+
+.rules {
+    padding: 20px;
+    line-height: 45px;
+}
+
+ul li{
+    text-align: left;
+    font-family: 'Frijole', cursive, sans-serif;
+    color: #556b2f;  
+}
+
+.welcome {
+    padding: 40px;
+}
+
+.formatName {
+    width: 300px;
+}
+
+#playerOne {
+    font-family: 'Frijole', cursive, sans-serif;
+    color: #556b2f; 
+    font-weight: 600;
+    float: left; 
+    font-size: 25px;
+    line-height: 40px;
+}
+
+#playerTwo {
+    font-family: 'Frijole', cursive, sans-serif;
+    color: #556b2f; 
+    font-weight: 600;
+    float: right;
+    font-size: 25px;
+    line-height: 40px;
+}
