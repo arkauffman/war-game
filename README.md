@@ -3,10 +3,10 @@
 ## Game Page
 
 <p> Page will display: </p>
-1. Lists player 1 and player 2 names
-2. Stack of cards for each player
-3. Play button that flips both cards at the same time
-4. Button to press when **WAR** takes place
+* Lists player 1 and player 2 names
+* Stack of cards for each player
+* Play button that flips both cards at the same time
+* Button to press when **WAR** takes place
 
 
 ## Rules Page
