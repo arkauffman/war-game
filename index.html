@@ -6,22 +6,56 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>War</title>
     <link href="https://fonts.googleapis.com/css?family=Frijole" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        <h1>THIS IS WAR</h1>
-    </header>
+    <div class="container"> 
+        <div class="row">
+            <header>
+                <h1>THIS IS WAR</h1>
+            </header>
+        </div>
+        
+        <div class="row">
+            <nav>
+                <a class="index"href="index.html">Game</a>
+                <a class="rules" href="./templates/rules.html">Rules</a>
+            </nav>
+        </div>
 
-    <nav>
-        <a href="index.html">Game</a>
-        <a href="./templates/rules.html">Rules</a>
-    </nav>
+        <div class="row">
+            <p class="formatName" id="playerOne">Player 1: <span> </span> <br> Cards left: <span id="count1"> </span></p>
+            <p class="formatName" id="playerTwo">Player 2: <span> </span> <br> Cards left: <span id="count2"> </span></p>
+        </div>
 
-    <p class="formatName" id="playerOne">Player 1: </p>
-    <p class="formatName" id="playerTwo">Player 2: </p>
-    
+        <div class="row">
+            <div class="button-format">
+                <button id="flip">Flip</button>
+                <button id="war">War</button>
+            </div>
+        </div>
 
-    <script src="js.main.js"></script>
+        <div class="row">
+            <div class="six columns">
+                <img id = "image1">
+                <img id = "back1" src="images/backs/blue.svg">
+            </div>
+            <div class="six columns right-card">
+                <img id = "back2" src="images/backs/blue.svg"> 
+                <img id = "image2"> 
+            </div>
+        </div>
+
+        <div class="row">
+            <footer class="reset-button">
+                <button id="reset">Reset</button>
+            </footer>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
