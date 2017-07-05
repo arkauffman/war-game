@@ -21,31 +21,29 @@
         
         <div class="row">
             <nav>
-                <a class="index"href="index.html">Game</a>
+                <a class="index" href="index.html">Game</a>
                 <a class="rules" href="./templates/rules.html">Rules</a>
             </nav>
-        </div>
-
-        <div class="row">
-            <p class="formatName" id="playerOne">Player 1: <span> </span> <br> Cards left: <span id="count1"> </span></p>
-            <p class="formatName" id="playerTwo">Player 2: <span> </span> <br> Cards left: <span id="count2"> </span></p>
         </div>
 
         <div class="row">
             <div class="button-format">
                 <button id="flip">Flip</button>
                 <button id="war">War</button>
+                
             </div>
         </div>
 
         <div class="row">
             <div class="six columns">
-                <img id = "image1">
-                <img id = "back1" src="images/backs/blue.svg">
+                <p class="formatName" id="playerOne">Player 1: <span> </span> <br> Cards left: <span id="count1"> </span> <br><span id="winGameOne"></span></p>
+                <img id="image1">
+                <img id="back1" src="images/backs/blue.svg">
             </div>
-            <div class="six columns right-card">
-                <img id = "back2" src="images/backs/blue.svg"> 
-                <img id = "image2"> 
+            <div class="six columns wg-cards">
+                <p class="formatName" id="playerTwo">Player 2: <span> </span> <br> Cards left: <span id="count2"> </span> <br><span id="winGameTwo"></span></p>
+                <img id="back2" src="images/backs/blue.svg"> 
+                <img id="image2"> 
             </div>
         </div>
 
