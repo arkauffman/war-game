@@ -45,6 +45,10 @@ a:hover, .index:hover, .rules:hover {
     border-color: #556b2f; 
 }
 
+a:active {
+    color: #4682b4;
+}
+
 .formatName {
     padding: 20px;
     width: 100%;
@@ -75,6 +79,7 @@ a:hover, .index:hover, .rules:hover {
 }
 
 #image2 {
+    float: right;
     padding: 5px;
     border-radius: 25px;
     position: absolute;

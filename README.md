@@ -4,10 +4,12 @@
 
 <p> Page will display: </p>
 
-- Lists player 1 and player 2 names
-- Stack of cards for each player
-- Play button that flips both cards at the same time
-- Button to press when  **WAR** takes place
+- The score of player 1 and player 2
+- The amount of cards each player has left in their possession
+- The winner of the card flip/war will be underlined
+- Flip button which allows players to flip the next card in their stack
+- War button that only works when a **WAR** takes place, as in the players have equal valued cards
+- War button can be used twice-in-a-row when there are multiple wars declared
 
 ## Rules Page
 

@@ -1,21 +1,22 @@
 /*----- app's state (variables) -----*/
-var cards, playerOneArr, playerTwoArr;
+var cards, playerOneArr, playerTwoArr, playVal; 
+var playOneScore = 0;
+var playTwoScore = 0;
 
 /*----- event listeners -----*/
 $('#flip').on('click', flipCard);
 
-// war event listener
-$('#war').on('click', war);
+$('#war').off('click', war);
 
 $('#reset').on('click', init); 
 
 /*----- functions -----*/
 init();
-// render();
 
 function init() {
 
-    $('#flip').on('click', flipCard);
+    //$('#flip').off('click', flipCard);
+    $('#war').off('click', war);
 
     cards = [
         {
@@ -229,58 +230,63 @@ function init() {
     ];
 
     shuffle(cards);
-    playerOneArr = cards.slice(0, (cards.length/2));
-    playerTwoArr = cards.slice((cards.length/2), cards.length);
+    // playerOneArr = cards.slice(0, (cards.length/2));
+    // playerTwoArr = cards.slice((cards.length/2), cards.length);
 
-    // playerOneArr = cards.slice(0, 1);
-    // playerTwoArr = cards.slice(10, 12);
+    playerOneArr = cards.slice(0, (cards.length/2)/2);
+    playerTwoArr = cards.slice((cards.length/2)/2, cards.length/2);
+
+    // playerOneArr = cards.slice(0, 10);
+    // playerTwoArr = cards.slice(0, 12);
 
     $('#image1').attr('src', ``);
     $('#image2').attr('src', ``);
-    $('#count1').html(`${playerOneArr.length}`);
-    $('#count2').html(`${playerTwoArr.length}`);
+    $('#count1').html('').css('color', '#556b2f');
+    $('#count2').html('').css('color', '#556b2f');
+    // $('#score1').html('');
+    // $('#score2').html('');
+    $('#win1').css('border-bottom', '0px');
+    $('#win2').css('border-bottom', '0px');
 }
 
 function render() {
     if (playerOneArr.length === 0) {
-        console.log('PLAYER 1 LOST');
         $('#count2').html("WINNER!").css('color', '#4682b4');
-        $('#count1').html('0');
-        $('#war').off('click', war);
-        $('#flip').off('click', flipCard);
+        $('#count1').html('0').css('color', '#4682b4');
+        // $('#score2').html(` ${playTwoScore++}`).css('color', '#4682b4');
+        // $('#score1').html(` ${playOneScore}`).css('color', '#4682b4');
     } else if (playerTwoArr.length === 0) {
-        console.log('PLAYER 2 LOST')
         $('#count1').html("WINNER!").css('color', '#4682b4');
-        $('#count2').html('0');
-        $('#war').off('click', war);
-        $('#flip').off('click', flipCard);
+        $('#count2').html('0').css('color', '#4682b4');
+        // $('#score1').html(` ${playOneScore++}`).css('color', '#4682b4');
+        // $('#score2').html(` ${playTwoScore}`).css('color', '#4682b4');
     } else {
-        // display correct card
         $('#image1').attr('src', `${playerOneArr[0].cardImage}`);
         $('#image1').css('background-color', '#f4f5f7');
         $('#image2').attr('src', `${playerTwoArr[0].cardImage}`);
         $('#image2').css('background-color', '#f4f5f7');
-
-        // display count
         $('#count1').html(`${playerOneArr.length}`);
         $('#count2').html(`${playerTwoArr.length}`);
     }
 }
 
 function flipCard() {
+    playVal = 0;
     render();
-    // no longer able to flip card if either player has no cards left
     if (playerOneArr.length <= 0 || playerTwoArr.length <= 0) return;
- 
-    // check which card's value is higher
+
     if (playerOneArr[0].value > playerTwoArr[0].value) {
         // first move first card on pile to back of deck
+        $('#win1').css('border-bottom', '3px solid #4682b4');
+        $('#win2').css('border-bottom', '0px');
         playerOneArr.push(playerOneArr[0]);
         playerOneArr.shift();
         // then move first card from player 2 to back of deck
         playerOneArr.push(playerTwoArr[0]);
         playerTwoArr.shift();
     } else if (playerOneArr[0].value < playerTwoArr[0].value) {
+        $('#win2').css('border-bottom', '3px solid #4682b4');
+        $('#win1').css('border-bottom', '0px');
         // first move first card on pile to back of deck
         playerTwoArr.push(playerTwoArr[0]);
         playerTwoArr.shift();
@@ -288,82 +294,58 @@ function flipCard() {
         playerTwoArr.push(playerOneArr[0]);
         playerOneArr.shift();
     } else if (playerOneArr[0].value === playerTwoArr[0].value) {
-        $('#war').on('click', war);
         $('#flip').off('click', flipCard);
+        $('#war').on('click', war);
     }
 }
 
-function war () {
-    console.log('war is declared')
-    var playVal = 0;
-    if (playerOneArr.length >= 4 && playerTwoArr.length >= 4) {
-        playVal = 4;
-    } else if (playerOneArr.length >= 3 && playerTwoArr.length >= 3) {
-        playVal = 3;
-    } else if (playOneArr.length >= 2 && playerTwoArr.length >= 2) {
-        playVal = 2;
-    } else if (playerOneArr.length >= 1 && playerTwoArr.length >= 1) {
-        playVal = 1;
-    }
-
-    if (playerOneArr[0].value === playerTwoArr[0].value) {
-        if (playerOneArr.length >= playVal && playerTwoArr.length >= playVal) {
-            $('#image1').attr('src', `${playerOneArr[playVal].cardImage}`);
-            $('#image1').css('background-color', '#f4f5f7');
-            $('#image2').attr('src', `${playerTwoArr[playVal].cardImage}`);
-            $('#image2').css('background-color', '#f4f5f7');
-            
-            console.log('player 1');
-            console.log(playerOneArr[0]);
-            console.log(playerOneArr[1]);
-            console.log(playerOneArr[2]);
-            console.log(playerOneArr[3]);
-            console.log(playerOneArr[4]);
-
-            console.log('player 2');
-            console.log(playerTwoArr[0]);
-            console.log(playerTwoArr[1]);
-            console.log(playerTwoArr[2]);
-            console.log(playerTwoArr[3]);
-            console.log(playerTwoArr[4]);
-
-            if (playerOneArr[playVal].value > playerTwoArr[playVal].value) {
-
-                var takeOne = playerOneArr.splice(0, playVal + 1);
-                var takeTwo = playerTwoArr.splice(0, playVal + 1);
-
-                var newArr = takeOne.concat(takeTwo);
-                console.log('CONCAT');
-                console.log(newArr);
-                var newArrUpdate = playerOneArr.concat(newArr);
-                playerOneArr = newArrUpdate;
-
-                console.log('player 1 post');
-                console.log(playerOneArr);
-                console.log('player 2 lost post');
-                console.log(playerTwoArr);
-
-            } else if (playerOneArr[playVal].value < playerTwoArr[playVal].value) {
-                var takeTwo = playerTwoArr.splice(0, playVal + 1);
-                var takeOne = playerOneArr.splice(0, playVal + 1);
-
-                var newArr = takeTwo.concat(takeOne);
-                console.log('CONCAT');
-                console.log(newArr);
-                var newArrUpdate = playerTwoArr.concat(newArr);
-                playerTwoArr = newArrUpdate;
-
-                console.log('player 2 post');
-                console.log(playerTwoArr);
-                console.log('player 1 lost post');
-                console.log(playerOneArr);
-            } else if (playerOneArr[playVal].value === playerTwoArr[playVal].value) {
-                war();
-            } 
-        }
-    } 
+function war() {
     $('#flip').on('click', flipCard);
     $('#war').off('click', war);
+
+    if (playerOneArr.length - playVal >= 5 && playerTwoArr.length - playVal >= 5) {
+        playVal = playVal + 4;
+    } else if (playerOneArr.length - playVal >= 4 && playerTwoArr.length - playVal >= 4) {
+        playVal = playVal + 3;
+    } else if (playerOneArr.length - playVal >= 3 && playerTwoArr.length - playVal >= 3) {
+        playVal = playVal + 2;
+    } else if (playerOneArr.length - playVal >= 2 && playerTwoArr.length - playVal >= 2) {
+        playVal = playVal + 1;
+    } else {
+        var sourceDeck = playerOneArr.length > playerTwoArr.length ? playerOneArr : playerTwoArr;
+        var targetDeck = playerOneArr === sourceDeck ? playerTwoArr : playerOneArr;
+        sourceDeck.push(...targetDeck);
+        targetDeck.length = 0;
+        return render();
+    }
+
+    $('#image1').attr('src', `${playerOneArr[playVal].cardImage}`);
+    $('#image1').css('background-color', '#f4f5f7');
+    $('#image2').attr('src', `${playerTwoArr[playVal].cardImage}`);
+    $('#image2').css('background-color', '#f4f5f7');
+   
+    if (playerOneArr[playVal].value > playerTwoArr[playVal].value) {
+        var takeOne = playerOneArr.splice(0, playVal);
+        // + 1 for both???
+        var takeTwo = playerTwoArr.splice(0, playVal)
+        var newArr = takeOne.concat(takeTwo);
+        var newArrUpdate = playerOneArr.concat(newArr);
+        playerOneArr = newArrUpdate;
+        playVal = 0;
+        return;
+    } else if (playerOneArr[playVal].value < playerTwoArr[playVal].value) {
+        var takeTwo = playerTwoArr.splice(0, playVal);
+        // + 1
+        var takeOne = playerOneArr.splice(0, playVal);
+        var newArr = takeTwo.concat(takeOne);
+        var newArrUpdate = playerTwoArr.concat(newArr);
+        playerTwoArr = newArrUpdate;
+        playVal = 0;
+        return;
+    }
+    if (playerOneArr[playVal].value === playerTwoArr[playVal].value) {
+        $('#war').on('click', war);
+    } 
 }
 
 function shuffle(arr) {
