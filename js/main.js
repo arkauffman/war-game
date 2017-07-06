@@ -4,7 +4,7 @@ var playOneScore = 0;
 var playTwoScore = 0;
 
 /*----- event listeners -----*/
-$('#flip').on('click', flipCard);
+//$('#flip').on('click', flipCard);
 
 $('#war').off('click', war);
 
@@ -15,7 +15,7 @@ init();
 
 function init() {
 
-    //$('#flip').off('click', flipCard);
+    $('#flip').on('click', flipCard);
     $('#war').off('click', war);
 
     cards = [
@@ -256,12 +256,14 @@ function render() {
         playTwoScore++;
         $('#score2').html(` ${playTwoScore}`).css('color', '#4682b4');
         $('#score1').html(` ${playOneScore}`).css('color', '#4682b4');
+        $('#flip').off('click', flipCard);
     } else if (playerTwoArr.length === 0) {
         $('#count1').html("WINNER!").css('color', '#4682b4');
         $('#count2').html('0').css('color', '#4682b4');
         playOneScore++;
         $('#score1').html(` ${playOneScore}`).css('color', '#4682b4');
         $('#score2').html(` ${playTwoScore}`).css('color', '#4682b4');
+        $('#flip').off('click', flipCard);
     } else {
         $('#image1').attr('src', `${playerOneArr[0].cardImage}`);
         $('#image1').css('background-color', '#f4f5f7');
