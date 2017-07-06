@@ -4,7 +4,11 @@
 }
 
 body {
-    background: linear-gradient( #cdb79e, #fffaf0);
+    background: linear-gradient(#cdb79e, #fffaf0) repeat-x;
+}
+
+.body {
+    padding-bottom: 48px;
 }
 
 .container {
