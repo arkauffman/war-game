@@ -199,7 +199,8 @@ input[type="reset"]:focus,
 input[type="button"]:focus {
   color: #4682b4;
   border-color: #4682b4;
-  outline: 10; }
+  outline: 10;
+  outline-color: #556b2f }
 .button.button-primary,
 button.button-primary,
 input[type="submit"].button-primary,

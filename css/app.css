@@ -1,11 +1,25 @@
 * {
-    background-color: #f5fffa;
     font-family: 'Frijole', cursive, sans-serif;
     color: #556b2f;
 }
 
+body {
+    background: linear-gradient( #cdb79e, #fffaf0);
+}
+
+.container {
+    width: 900px;
+    margin: 0 auto;
+}
+
 h1, button, #flip, #war, #reset {
     text-align: center;
+}
+
+button, #flip, #war, #reset{
+    color: #2f4f4f;
+    border-color: #556b2f;
+    /*background-color: #c1cdc1;*/
 }
 
 .welcome-rules {
@@ -24,7 +38,7 @@ ul li{
 
 .button-format {
     text-align: center;
-    padding: 10px;
+    padding: 15px;
 }
 
 nav {
@@ -45,9 +59,9 @@ a:hover, .index:hover, .rules:hover {
     border-color: #556b2f; 
 }
 
-a:active {
+/*a:active {
     color: #4682b4;
-}
+}*/
 
 .formatName {
     padding: 20px;
@@ -90,10 +104,19 @@ a:active {
     float: right;
     position: absolute;
     top: 110px;
-    left: 115px;
+    left: 112px;
+    margin-right: auto;
+    display: block;
+}
+
+.wg-image-format {
+    width: 750px;
+    margin: 0 auto;
+    position: relative;
 }
 
 .reset-button {
     text-align: center;
     padding: 30px;
+    margin: 10px;
 }
