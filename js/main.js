@@ -226,11 +226,8 @@ function init() {
     ];
 
     shuffle(cards);
-    // playerOneArr = cards.slice(0, (cards.length/2));
-    // playerTwoArr = cards.slice((cards.length/2), cards.length);
-
-    playerOneArr = cards.slice(0, (cards.length/2)/2);
-    playerTwoArr = cards.slice((cards.length/2)/2, cards.length/2);
+    playerOneArr = cards.slice(0, (cards.length/2));
+    playerTwoArr = cards.slice((cards.length/2), cards.length);
 
     $('#image1').attr('src', ``);
     $('#image2').attr('src', ``);
