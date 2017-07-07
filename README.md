@@ -48,8 +48,8 @@
 - jQuery
 
 ## Getting Started:
-- Check out my war game [here](https://arkauffman.github.io/war-game/index.html)
+- Check out my war game [here](https://arkauffman.github.io/war-game/index.html).
 
 ## Next Steps:
-- Visual display of multiple cards when war takes place
-- Input of player's names
+- Visual display of multiple cards when war takes place.
+- Input of player's names.
