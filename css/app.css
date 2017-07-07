@@ -3,12 +3,13 @@
     color: #556b2f;
 }
 
-body {
-    background: linear-gradient(#cdb79e, #fffaf0) repeat-x;
+html {
+    height: 100%;
 }
 
-.body {
-    padding-bottom: 48px;
+body {
+    background: linear-gradient(#cdb79e, white) repeat-x;
+    height: 100%;
 }
 
 .container {
