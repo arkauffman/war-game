@@ -40,3 +40,16 @@
 - How a player wins the game.
 - Rules layout pictured below: 
     ![Rules](images/Rules.jpg)
+
+## Technologies Used:
+- HTML
+- CSS
+- JavaScript
+- jQuery
+
+## Getting Started:
+- Check out my war game [here](https://arkauffman.github.io/war-game/index.html)
+
+## Next Steps:
+- Visual display of multiple cards when war takes place
+- Input of player's names
