@@ -24,7 +24,6 @@ h1, button, #flip, #war, #reset {
 button, #flip, #war, #reset{
     color: #2f4f4f;
     border-color: #556b2f;
-    /*background-color: #c1cdc1;*/
 }
 
 .welcome-rules {
